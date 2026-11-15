@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WATERSTONE LIMITED · Mobile productivity tools</title>
+<meta name="description" content="Mobile productivity tools">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WATERSTONE LIMITED">
+<meta property="og:title" content="WATERSTONE LIMITED · Mobile productivity tools">
+<meta property="og:description" content="Mobile productivity tools">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/fonts/bricolage.css">
+<style>
+:root {
+  --bg: hsl(10 14% 5%);
+  --card: hsl(10 14% 9%);
+  --tint: hsl(190 34% 15%);
+  --ink: hsl(10 10% 96%);
+  --muted: hsl(10 8% 64%);
+  --line: hsl(10 12% 17%);
+  --accent: hsl(190 72% 62%);
+  --sans: Bricolage Grotesque, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--sans); }
+.in { max-width: 68rem; margin: 0 auto; padding: 0 clamp(1.1rem, 4vw, 2rem); }
+.bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.bar .in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 3.8rem; }
+.bar .logo { font-weight: 700; letter-spacing: -.02em; text-decoration: none; font-size: 1.1rem; }
+.bar .logo i { font-style: normal; color: var(--accent); }
+.bar nav { display: flex; gap: 1.4rem; font-size: .93rem; }
+.bar nav a { text-decoration: none; color: var(--muted); padding: .2rem 0; border-bottom: 2px solid transparent; }
+.bar nav a:hover { color: var(--ink); }
+.bar nav a[aria-current] { color: var(--ink); border-color: var(--accent); }
+.hero { padding: clamp(3.5rem, 11vw, 8rem) 0 clamp(2.5rem, 6vw, 4rem); }
+.hero h1 { margin: 0; font-size: clamp(3rem, 12vw, 8rem); line-height: .92; letter-spacing: -.05em; font-weight: 700; overflow-wrap: anywhere; }
+.hero h1 span { color: var(--accent); }
+.hero p { margin: 1.8rem 0 0; max-width: 46ch; color: var(--muted); font-size: 1.15rem; }
+.panels { display: grid; gap: 1.4rem; }
+.panel { position: relative; overflow: hidden; display: grid; gap: 1.6rem; padding: clamp(1.4rem, 4vw, 2.6rem); border-radius: 28px; border: 1px solid var(--line); background: linear-gradient(140deg, var(--tint), var(--card) 60%); }
+.panel .icon { width: 76px; height: 76px; border-radius: 18px; background: var(--card); margin-bottom: 1.2rem; }
+.panel h2 { margin: 0; font-size: clamp(1.7rem, 4.5vw, 2.5rem); line-height: 1.05; letter-spacing: -.035em; }
+.panel .short { margin: .8rem 0 0; color: var(--muted); max-width: 36ch; }
+.pair { display: flex; gap: .8rem; justify-content: center; align-items: flex-start; }
+.pair img { width: 46%; max-width: 13rem; border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 24px 50px rgba(0, 0, 0, .45); }
+.pair img:nth-child(2) { margin-top: 2.2rem; }
+.actions { display: flex; gap: .55rem; flex-wrap: wrap; margin: 1.5rem 0 0; }
+.btn { display: inline-flex; align-items: center; gap: .45rem; padding: .66rem 1.1rem; border-radius: 12px; font-size: .9rem; font-weight: 600; line-height: 1; text-decoration: none; border: 1px solid transparent; transition: background-color .12s, border-color .12s, color .12s; }
+.btn svg { width: 14px; height: 14px; }
+.btn-play { background: var(--accent); color: var(--bg); }
+.btn-play:hover { filter: brightness(1.1); }
+.btn-ghost { border-color: var(--line); color: var(--ink); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.sub { padding: clamp(3rem, 8vw, 6rem) 0; display: grid; gap: 1.2rem; }
+.sub h1 { margin: 0; font-size: clamp(2.4rem, 8vw, 4.8rem); line-height: 1; letter-spacing: -.045em; }
+.sub p { margin: 0; color: var(--muted); max-width: 54ch; font-size: 1.05rem; }
+.big { display: grid; gap: .8rem; margin-top: 1rem; }
+.big a { display: flex; align-items: center; gap: .9rem; padding: 1.2rem 1.4rem; border: 1px solid var(--line); border-radius: 18px; background: var(--card); text-decoration: none; font-size: 1.2rem; font-weight: 600; overflow-wrap: anywhere; }
+.big a svg { width: 22px; height: 22px; color: var(--accent); flex: 0 0 22px; }
+.big a:hover { border-color: var(--accent); }
+.pol { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.pol a { color: var(--muted); text-decoration: none; }
+.pol a:hover { color: var(--accent); }
+.none { color: var(--muted); }
+footer { margin-top: 4rem; border-top: 1px solid var(--line); padding: 1.8rem 0 3rem; color: var(--muted); font-size: .86rem; }
+footer .in { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .8rem 2rem; }
+@media (min-width: 820px) {
+  .panel { grid-template-columns: 1.1fr .9fr; align-items: center; }
+  .panel:nth-child(even) .pair { order: -1; }
+}
+
+</style>
+</head>
+<body>
+<div class="bar"><div class="in">
+  <a class="logo" href="/">WATERSTONE LIMITED<i>.</i></a>
+  <nav><a href="/" aria-current=page>Games</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+</div></div>
+<main class="in">
+  <section class="hero">
+    <h1>WATERSTONE LIMITED<span>.</span></h1>
+    <p>Mobile productivity tools We develop applications that help users stay organized and manage daily tasks. Our products focus on clarity, convenience and efficient workflows.</p>
+  </section>
+  <section>
+    <div class="panels">
+      <article class="panel">
+        <div>
+          <img class="icon" src="/icons/cinder-vale.png" alt="" width="76" height="76" loading="lazy">
+          <h2>Cinder Vale</h2>
+          <p class="short">Tap to drop each block and stack your tower higher than ever before.</p>
+          <p class="actions"><a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.Iron40.CinderVale"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.14-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14Z"/></svg>Google Play</a><a class="btn btn-ghost" href="/cinder-vale/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.3-7 9.5-4.1-1.2-7-5.2-7-9.5V6l7-3Z"/><path d="M9.5 12.2l1.9 1.9 3.5-3.7"/></svg>Privacy policy</a></p>
+        </div>
+        <div class="pair"><img src="/shots/cinder-vale_1.png" alt="Cinder Vale screenshot 1" loading="lazy" decoding="async"><img src="/shots/cinder-vale_2.png" alt="Cinder Vale screenshot 2" loading="lazy" decoding="async"></div>
+      </article>
+      <article class="panel">
+        <div>
+          <img class="icon" src="/icons/echo-anchor.png" alt="" width="76" height="76" loading="lazy">
+          <h2>Echo Anchor</h2>
+          <p class="short">Link matching dots, close loops and set off satisfying chain reactions.</p>
+          <p class="actions"><a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.Ridge767.EchoAnchor"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.14-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14Z"/></svg>Google Play</a><a class="btn btn-ghost" href="/echo-anchor/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.3-7 9.5-4.1-1.2-7-5.2-7-9.5V6l7-3Z"/><path d="M9.5 12.2l1.9 1.9 3.5-3.7"/></svg>Privacy policy</a></p>
+        </div>
+        <div class="pair"><img src="/shots/echo-anchor_1.png" alt="Echo Anchor screenshot 1" loading="lazy" decoding="async"><img src="/shots/echo-anchor_2.png" alt="Echo Anchor screenshot 2" loading="lazy" decoding="async"></div>
+      </article>
+      <article class="panel">
+        <div>
+          <img class="icon" src="/icons/ember-quarry.png" alt="" width="76" height="76" loading="lazy">
+          <h2>Ember Quarry</h2>
+          <p class="short">Swap tiles to match colors, clear the board, and sharpen your focus.</p>
+          <p class="actions"><a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.Solar71.EmberQuarry"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.14-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14Z"/></svg>Google Play</a><a class="btn btn-ghost" href="/ember-quarry/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.3-7 9.5-4.1-1.2-7-5.2-7-9.5V6l7-3Z"/><path d="M9.5 12.2l1.9 1.9 3.5-3.7"/></svg>Privacy policy</a></p>
+        </div>
+        <div class="pair"><img src="/shots/ember-quarry_1.png" alt="Ember Quarry screenshot 1" loading="lazy" decoding="async"><img src="/shots/ember-quarry_2.png" alt="Ember Quarry screenshot 2" loading="lazy" decoding="async"></div>
+      </article>
+      <article class="panel">
+        <div>
+          <img class="icon" src="/icons/lunar-foundry.png" alt="" width="76" height="76" loading="lazy">
+          <h2>Lunar Foundry</h2>
+          <p class="short">Swipe and merge tiles on a graphite board, climbing many levels toward 2048.</p>
+          <p class="actions"><a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.Neon433.LunarFoundry"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.14-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14Z"/></svg>Google Play</a><a class="btn btn-ghost" href="/lunar-foundry/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.3-7 9.5-4.1-1.2-7-5.2-7-9.5V6l7-3Z"/><path d="M9.5 12.2l1.9 1.9 3.5-3.7"/></svg>Privacy policy</a></p>
+        </div>
+        <div class="pair"><img src="/shots/lunar-foundry_1.png" alt="Lunar Foundry screenshot 1" loading="lazy" decoding="async"><img src="/shots/lunar-foundry_2.png" alt="Lunar Foundry screenshot 2" loading="lazy" decoding="async"></div>
+      </article>
+      <article class="panel">
+        <div>
+          <img class="icon" src="/icons/sable-foundry.png" alt="" width="76" height="76" loading="lazy">
+          <h2>Sable Foundry</h2>
+          <p class="short">Bounce the ball, smash bricks, and clear levels in short sessions.</p>
+          <p class="actions"><a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.Ember592.SableFoundry"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.14-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14Z"/></svg>Google Play</a><a class="btn btn-ghost" href="/sable-foundry/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.3-7 9.5-4.1-1.2-7-5.2-7-9.5V6l7-3Z"/><path d="M9.5 12.2l1.9 1.9 3.5-3.7"/></svg>Privacy policy</a></p>
+        </div>
+        <div class="pair"><img src="/shots/sable-foundry_1.png" alt="Sable Foundry screenshot 1" loading="lazy" decoding="async"><img src="/shots/sable-foundry_2.png" alt="Sable Foundry screenshot 2" loading="lazy" decoding="async"></div>
+      </article>
+      <article class="panel">
+        <div>
+          <img class="icon" src="/icons/saffron-harbor.png" alt="" width="76" height="76" loading="lazy">
+          <h2>Saffron Harbor</h2>
+          <p class="short">Pour and sort colors until each tube holds one shade, then beat your record.</p>
+          <p class="actions"><a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.Solar172.SaffronHarbor"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.14-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14Z"/></svg>Google Play</a><a class="btn btn-ghost" href="/saffron-harbor/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.3-7 9.5-4.1-1.2-7-5.2-7-9.5V6l7-3Z"/><path d="M9.5 12.2l1.9 1.9 3.5-3.7"/></svg>Privacy policy</a></p>
+        </div>
+        <div class="pair"><img src="/shots/saffron-harbor_1.png" alt="Saffron Harbor screenshot 1" loading="lazy" decoding="async"><img src="/shots/saffron-harbor_2.png" alt="Saffron Harbor screenshot 2" loading="lazy" decoding="async"></div>
+      </article>
+      <article class="panel">
+        <div>
+          <img class="icon" src="/icons/topaz-circuit.png" alt="" width="76" height="76" loading="lazy">
+          <h2>Topaz Circuit</h2>
+          <p class="short">Aim, pop pastel bubbles, and clear every hex grid in Topaz Circuit.</p>
+          <p class="actions"><a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.Sable483.TopazCircuit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.14-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14Z"/></svg>Google Play</a><a class="btn btn-ghost" href="/topaz-circuit/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.3-7 9.5-4.1-1.2-7-5.2-7-9.5V6l7-3Z"/><path d="M9.5 12.2l1.9 1.9 3.5-3.7"/></svg>Privacy policy</a></p>
+        </div>
+        <div class="pair"><img src="/shots/topaz-circuit_1.png" alt="Topaz Circuit screenshot 1" loading="lazy" decoding="async"><img src="/shots/topaz-circuit_2.png" alt="Topaz Circuit screenshot 2" loading="lazy" decoding="async"></div>
+      </article>
+      <article class="panel">
+        <div>
+          <img class="icon" src="/icons/violet-reef.png" alt="" width="76" height="76" loading="lazy">
+          <h2>Violet Reef</h2>
+          <p class="short">Drag wooden blocks to fill rows and columns, then beat your own high score.</p>
+          <p class="actions"><a class="btn btn-play" href="https://play.google.com/store/apps/details?id=com.Comet403.VioletReef"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.14-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14Z"/></svg>Google Play</a><a class="btn btn-ghost" href="/violet-reef/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.3-7 9.5-4.1-1.2-7-5.2-7-9.5V6l7-3Z"/><path d="M9.5 12.2l1.9 1.9 3.5-3.7"/></svg>Privacy policy</a></p>
+        </div>
+        <div class="pair"><img src="/shots/violet-reef_1.png" alt="Violet Reef screenshot 1" loading="lazy" decoding="async"><img src="/shots/violet-reef_2.png" alt="Violet Reef screenshot 2" loading="lazy" decoding="async"></div>
+      </article>
+    </div>
+  </section>
+</main>
+<footer><div class="in"><span>&copy; 2026 WATERSTONE LIMITED</span><span>waterstonelimited.online</span></div></footer>
+</body>
+</html>
